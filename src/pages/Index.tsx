@@ -6,6 +6,8 @@ import { CodeEditor } from "@/components/CodeEditor";
 import { Terminal } from "@/components/Terminal";
 import { GitPanel } from "@/components/GitPanel";
 
+
+
 interface FileItem {
   id: string;
   name: string;
