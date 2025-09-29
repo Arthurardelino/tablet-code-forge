@@ -4,6 +4,7 @@ import { FileExplorer } from "@/components/FileExplorer";
 import { TabBar } from "@/components/TabBar";
 import { CodeEditor } from "@/components/CodeEditor";
 import { Terminal } from "@/components/Terminal";
+import { GitPanel } from "@/components/GitPanel";
 
 interface FileItem {
   id: string;
@@ -97,6 +98,7 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState('3');
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isGitPanelOpen, setIsGitPanelOpen] = useState(false);
 
   const handleFileSelect = (file: FileItem) => {
     if (file.type === 'file') {
@@ -143,6 +145,7 @@ const Index = () => {
       <MenuBar 
         onTerminalToggle={() => setIsTerminalOpen(!isTerminalOpen)}
         onSidebarToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        onGitPanelToggle={() => setIsGitPanelOpen(!isGitPanelOpen)}
       />
       
       <div className="flex flex-1 overflow-hidden">
@@ -185,6 +188,14 @@ const Index = () => {
             )}
           </div>
         </div>
+
+        {/* Git Panel */}
+        {isGitPanelOpen && (
+          <GitPanel 
+            isOpen={isGitPanelOpen}
+            onToggle={() => setIsGitPanelOpen(!isGitPanelOpen)}
+          />
+        )}
       </div>
 
       {/* Terminal */}

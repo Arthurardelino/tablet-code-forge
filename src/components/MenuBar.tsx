@@ -22,9 +22,10 @@ import {
 interface MenuBarProps {
   onTerminalToggle: () => void;
   onSidebarToggle: () => void;
+  onGitPanelToggle: () => void;
 }
 
-export const MenuBar = ({ onTerminalToggle, onSidebarToggle }: MenuBarProps) => {
+export const MenuBar = ({ onTerminalToggle, onSidebarToggle, onGitPanelToggle }: MenuBarProps) => {
   return (
     <div className="h-12 bg-editor-sidebar border-b border-border flex items-center justify-between px-4">
       {/* Left Section */}
@@ -108,9 +109,14 @@ export const MenuBar = ({ onTerminalToggle, onSidebarToggle }: MenuBarProps) => 
 
       {/* Right Section */}
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="sm" className="text-sm hidden md:flex">
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          className="text-sm hidden md:flex"
+          onClick={onGitPanelToggle}
+        >
           <GitBranch className="w-4 h-4 mr-1" />
-          main
+          Git
         </Button>
 
         <Button variant="ghost" size="sm">
