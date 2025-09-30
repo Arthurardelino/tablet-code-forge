@@ -3,7 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  min-height: 100vh;
+  scrollbar-width: 10px;
+
 }
 
 .logo {
