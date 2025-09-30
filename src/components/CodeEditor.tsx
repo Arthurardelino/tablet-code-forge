@@ -64,18 +64,18 @@ export const CodeEditor = ({ fileName, language, code, onChange }: CodeEditorPro
       </div>
 
       {/* Editor Content */}
-      <div className="flex flex-1 relative">
+      <div className="flex flex-1 relative overflow-hidden">
         {/* Line Numbers */}
-        <div className="bg-editor-sidebar border-r border-border min-w-[50px] py-4">
+        <div className="bg-editor-sidebar border-r border-border min-w-[50px] py-4 overflow-y-auto">
           {renderLineNumbers()}
         </div>
 
         {/* Code Area */}
-        <div className="flex-1 relative">
+        <div className="flex-1 relative overflow-y-auto">
           <textarea
             value={code}
             onChange={handleCodeChange}
-            className="absolute inset-0 w-full h-full p-4 bg-transparent text-foreground font-mono text-sm leading-6 resize-none outline-none z-10"
+            className="absolute inset-0 w-full h-full p-4 bg-transparent text-foreground font-mono text-sm leading-6 resize-none outline-none z-10 overflow-y-auto"
             style={{
               background: 'transparent',
               color: 'transparent',
@@ -89,7 +89,7 @@ export const CodeEditor = ({ fileName, language, code, onChange }: CodeEditorPro
           
           {/* Syntax Highlighted Display */}
           <div 
-            className="absolute inset-0 p-4 font-mono text-sm leading-6 pointer-events-none whitespace-pre-wrap break-words"
+            className="absolute inset-0 p-4 font-mono text-sm leading-6 pointer-events-none whitespace-pre-wrap break-words overflow-y-auto"
             dangerouslySetInnerHTML={{ __html: highlightSyntax(code) }}
           />
         </div>

@@ -10,6 +10,7 @@ import {
   ChevronDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface FileItem {
   id: string;
@@ -170,9 +171,11 @@ export const FileExplorer = ({ onFileSelect, selectedFile }: FileExplorerProps) 
       </div>
 
       {/* File Tree */}
-      <div className="overflow-y-auto">
-        {sampleFiles.map(file => renderFileItem(file))}
-      </div>
+      <ScrollArea className="flex-1">
+        <div className="py-2">
+          {sampleFiles.map(file => renderFileItem(file))}
+        </div>
+      </ScrollArea>
     </div>
   );
 };
