@@ -102,12 +102,25 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  /* Scroll suave global para mobile e desktop */
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground font-mono antialiased;
-    overflow: hidden;
+    overflow-x: hidden; /* Previne scroll horizontal indesejado */
+    /* Removido overflow: hidden para permitir scroll vertical */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scroll suave nativo para dispositivos touch (iOS/Android) */
+  * {
+    -webkit-overflow-scrolling: touch;
   }
   
-  /* Custom scrollbar for code editor feel */
+  /* Custom scrollbar para desktop - mantém tema do editor */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
