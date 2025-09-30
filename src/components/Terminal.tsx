@@ -25,7 +25,7 @@ export const Terminal = ({ isOpen, onToggle }: TerminalProps) => {
       switch (command.toLowerCase().trim()) {
         case 'clear':
           setHistory([""]);
-          break;
+          break; //"break é como se fosse quebrar um looping"
         case 'ls':
           newHistory.push("src/  public/  package.json  README.md");
           break;
