@@ -109,8 +109,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-mono antialiased;
-    overflow-x: hidden; /* Previne scroll horizontal indesejado */
-    /* Removido overflow: hidden para permitir scroll vertical */
+    /* REMOVIDO overflow: hidden - isso estava travando o scroll */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
