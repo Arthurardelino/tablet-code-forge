@@ -25,40 +25,10 @@ interface FileExplorerProps {
   selectedFile?: string;
 }
 
-const sampleFiles: FileItem[] = [
-  {
-    id: '1',
-    name: 'src',
-    type: 'folder',
-    children: [
-      {
-        id: '2',
-        name: 'components',
-        type: 'folder',
-        children: [
-          { id: '3', name: 'App.tsx', type: 'file', extension: 'tsx' },
-          { id: '4', name: 'Header.tsx', type: 'file', extension: 'tsx' },
-        ]
-      },
-      { id: '5', name: 'index.tsx', type: 'file', extension: 'tsx' },
-      { id: '6', name: 'styles.css', type: 'file', extension: 'css' },
-    ]
-  },
-  {
-    id: '7',
-    name: 'public',
-    type: 'folder',
-    children: [
-      { id: '8', name: 'index.html', type: 'file', extension: 'html' },
-      { id: '9', name: 'favicon.ico', type: 'file', extension: 'ico' },
-    ]
-  },
-  { id: '10', name: 'package.json', type: 'file', extension: 'json' },
-  { id: '11', name: 'README.md', type: 'file', extension: 'md' },
-];
+const sampleFiles: FileItem[] = [];
 
 export const FileExplorer = ({ onFileSelect, selectedFile }: FileExplorerProps) => {
-  const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set(['1', '2']));
+  const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set());
 
   const toggleFolder = (folderId: string) => {
     const newExpanded = new Set(expandedFolders);
@@ -173,7 +143,14 @@ export const FileExplorer = ({ onFileSelect, selectedFile }: FileExplorerProps) 
       {/* File Tree */}
       <ScrollArea className="flex-1">
         <div className="py-2">
-          {sampleFiles.map(file => renderFileItem(file))}
+          {sampleFiles.length > 0 ? (
+            sampleFiles.map(file => renderFileItem(file))
+          ) : (
+            <div className="px-4 py-8 text-center text-muted-foreground text-sm">
+              <p>Nenhum arquivo disponível</p>
+              <p className="mt-2 text-xs">Aguardando integração com backend</p>
+            </div>
+          )}
         </div>
       </ScrollArea>
     </div>

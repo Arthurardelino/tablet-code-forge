@@ -71,15 +71,17 @@ export const CodeEditor = ({ fileName, language, code, onChange }: CodeEditorPro
         </div>
 
         {/* Code Area */}
-        <div className="flex-1 relative overflow-y-auto">
+        <div className="flex-1 relative">
           <textarea
             value={code}
             onChange={handleCodeChange}
-            className="absolute inset-0 w-full h-full p-4 bg-transparent text-foreground font-mono text-sm leading-6 resize-none outline-none z-10 overflow-y-auto"
+            className="absolute inset-0 w-full h-full p-4 bg-transparent text-foreground font-mono text-sm leading-6 resize-none outline-none z-10"
             style={{
               background: 'transparent',
               color: 'transparent',
               caretColor: 'hsl(var(--accent))',
+              overflowY: 'scroll',
+              overflowX: 'hidden'
             }}
             spellCheck={false}
             autoComplete="off"
@@ -89,7 +91,11 @@ export const CodeEditor = ({ fileName, language, code, onChange }: CodeEditorPro
           
           {/* Syntax Highlighted Display */}
           <div 
-            className="absolute inset-0 p-4 font-mono text-sm leading-6 pointer-events-none whitespace-pre-wrap break-words overflow-y-auto"
+            className="absolute inset-0 p-4 font-mono text-sm leading-6 pointer-events-none whitespace-pre-wrap break-words"
+            style={{
+              overflowY: 'scroll',
+              overflowX: 'hidden'
+            }}
             dangerouslySetInnerHTML={{ __html: highlightSyntax(code) }}
           />
         </div>

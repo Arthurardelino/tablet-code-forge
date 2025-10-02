@@ -2,7 +2,7 @@ import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Tab {
-  id: number;
+  id: string;
   name: string;
   isModified?: boolean;
   isActive?: boolean;
@@ -10,9 +10,9 @@ interface Tab {
 
 interface TabBarProps {
   tabs: Tab[];
-  onTabSelect: (tabId: number) => void;
-  onTabClose: (tabId: number) => void;
-  activeTab?: number;
+  onTabSelect: (tabId: string) => void;
+  onTabClose: (tabId: string) => void;
+  activeTab?: string;
 }
 
 export const TabBar = ({ tabs, onTabSelect, onTabClose, activeTab }: TabBarProps) => {

@@ -1,6 +1,3 @@
-import { set } from "date-fns";
-import { createInflate } from "zlib";
-
 export interface FileExplorer {
     id: string;
     name: string;
@@ -14,12 +11,10 @@ export interface FileExplorer {
     modifiedAt: Date;
 }
 
-export class filemanager {
+export class FileManager {
     private root: FileExplorer[] = [];
-    private currentFildId: string | null = null;
+    private currentFileId: string | null = null;
     private changeListeners: Set<() => void> = new Set();
-}
 
-createInflate(
-    
-)
+    // Implementação futura do gerenciador de arquivos
+}

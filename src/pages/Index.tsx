@@ -87,17 +87,9 @@ function App() {
 export default App;`;
 
 const Index = () => {
-  const [tabs, setTabs] = useState<Tab[]>([
-    {
-      id: '3',
-      name: 'App.tsx',
-      content: sampleCode,
-      language: 'typescript',
-      isModified: false
-    }
-  ]);
+  const [tabs, setTabs] = useState<Tab[]>([]);
   
-  const [activeTab, setActiveTab] = useState('3');
+  const [activeTab, setActiveTab] = useState('');
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isGitPanelOpen, setIsGitPanelOpen] = useState(false);
